@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {	
@@ -91,7 +90,6 @@ int main()
 		for (j = 0; j <= 9; j++)
 		printf(" %c ",A[i][j]);
 	}
-	system("PAUSE");
 	return 0;
 }
 
