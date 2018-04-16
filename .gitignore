@@ -15,4 +15,5 @@
 *.log
 *.sql
 *.sqlite
-out
+bin/program
+build/*.o

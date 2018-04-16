@@ -1,12 +1,9 @@
 #include <stdio.h>
 
-int main()
-{	
-
-	int i = 10, j = 10;
-	char A[i][j];
-	
-		for (i = 0; i <= 9; i++)
+void layout(char (*A)[10])
+{
+	int i, j;
+	for (i = 0; i <= 9; i++)
 	{
 		for (j = 0; j <= 9; j++)
 		A[i][j] = ' ';
@@ -83,13 +80,4 @@ int main()
 	A[7][6] = 'p';
 	A[7][7] = 'p';
 	A[7][8] = 'p';
-		
-	for (i = 0; i <= 9; i++)
-	{
-		printf("\n\n");
-		for (j = 0; j <= 9; j++)
-		printf(" %c ",A[i][j]);
-	}
-	return 0;
 }
-
