@@ -26,6 +26,7 @@ int main()
 			flag = 0;
 			printf("Print positions (ex: a2 a3)\n");
 			scanf("%c %d %c %d", &xx, &yy, &xx1, &yy1);
+			board1 (xx, yy, xx1, yy1);
 			if (xx == 'a') {x = 1; flag++;}
 			if (xx == 'b') {x = 2; flag++;}
 			if (xx == 'c') {x = 3; flag++;}
