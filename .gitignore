@@ -17,3 +17,4 @@
 *.sqlite
 bin/program
 build/*.o
+bin/*.txt
