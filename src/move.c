@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 void board (char (*A)[10])
 {
@@ -28,11 +29,10 @@ void board1 (int xx, int yy, int xx1, int yy1)
 
 bool move(int y, int x, int y1, int x1, char (*A)[10])
 {
-	if (A[y][x] == 'p')
+	if (A[y][x] == 'p') //white pawns
 	{
 		if (A[y1][x1] == ' ' && x == x1 && abs(y1-y) <= 2)
 		{
-			printf("Possible move");
 			A[y1][x1] = A[y][x];
 			A[y][x] = ' ';
 			board (A);
@@ -40,7 +40,6 @@ bool move(int y, int x, int y1, int x1, char (*A)[10])
 		}
 		if (A[y1][x1] != ' ' && ((y-1 == y1 && x-1 == x1) || (y-1 == y1 && x+1 == x1)))
 		{
-			printf("Possible move");
 			A[y1][x1] = A[y][x];
 			A[y][x] = ' ';
 			board (A);
@@ -48,11 +47,10 @@ bool move(int y, int x, int y1, int x1, char (*A)[10])
 		}
 		return false;
 	}
-	if (A[y][x] == 'P')
+	if (A[y][x] == 'P') //black pawns
 	{
 		if (A[y1][x1] == ' ' && x == x1 && abs(y1-y) <= 2)
 		{
-			printf("Possible move");
 			A[y1][x1] = A[y][x];
 			A[y][x] = ' ';
 			board (A);
@@ -60,7 +58,78 @@ bool move(int y, int x, int y1, int x1, char (*A)[10])
 		}
 		if (A[y1][x1] != ' ' && ((y+1 == y1 && x-1 == x1) || (y+1 == y1 && x+1 == x1)))
 		{
-			printf("Possible move");
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		return false;
+	}
+	if (A[y][x] == 'r') //white rooks
+	{
+		if (A[y1][x1] == ' ' && x == x1)
+		{
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		if (A[y1][x1] != ' ' && (x == x1 || y == y1))
+		{
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		return false;
+	}
+	if (A[y][x] == 'R') //black rooks
+	{
+		if (A[y1][x1] == ' ' && x == x1)
+		{
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		if (A[y1][x1] != ' ' && (x == x1 || y == y1))
+		{
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		return false;
+	}
+	if (A[y][x] == 'n') // while knight (horse)
+	{
+		if (A[y1][x1] == ' ' && (pow(x1-x, 2) + pow (y1-y, 2)) == 5)
+		{
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		if (A[y1][x1] != ' ' && (pow(x1-x, 2) + pow(y1-y, 2)) == 5)
+		{
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		return false;
+	}
+	if (A[y][x] == 'N') // black knight (horse)
+	{
+		if (A[y1][x1] == ' ' && (pow(x1-x, 2) + pow(y1-y, 2)) == 5)
+		{
+			A[y1][x1] = A[y][x];
+			A[y][x] = ' ';
+			board (A);
+			return true;
+		}
+		if (A[y1][x1] != ' ' && (pow(x1-x, 2) + pow(y1-y, 2)) == 5)
+		{
 			A[y1][x1] = A[y][x];
 			A[y][x] = ' ';
 			board (A);
