@@ -3,9 +3,7 @@
 #include "move.h"
 #include "output.h"
 
-void PawnMove ();
-void PawnMoveWhite ();
-void PawnMoveBlack ();
+bool PawnMove();
 
 int main()
 {	
@@ -64,7 +62,10 @@ int main()
 			if (yy1 == 8) {y1 = 1; flag++;}
 		} while (flag != 4);
 		printf("\n\n");	
-		PawnMove(y, x, y1, x1, A);
+		if(!move(y, x, y1, x1, A)) 
+		{
+			printf("Wrong move\n");
+		}
 		output(A);
 		printf("\n\nExit? (print 'y')\n");
 		scanf(" %c", &con);
