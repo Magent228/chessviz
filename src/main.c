@@ -1,7 +1,5 @@
 #include "uheader.h"
 
-bool PawnMove();
-
 int main()
 {	
 	char con;
