@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include "layout.h"
-#include "move.h"
-#include "output.h"
+#include "uheader.h"
 
 bool PawnMove();
 
